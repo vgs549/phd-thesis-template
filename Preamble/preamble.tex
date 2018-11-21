@@ -78,9 +78,9 @@
 \usepackage{booktabs} % For professional looking tables
 \usepackage{multirow}
 
-%\usepackage{multicol}
-%\usepackage{longtable}
-%\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{tabularx}
 
 
 % *********************************** SI Units *********************************
@@ -91,8 +91,10 @@
 
 % Choose linespacing as appropriate. Default is one-half line spacing as per the
 % University guidelines
-
-% \doublespacing
+\usepackage{parskip}
+\setlength{\parindent}{15pt}
+\setlength{\parskip}{0.5cm}
+\doublespacing
 % \onehalfspacing
 % \singlespacing
 
@@ -103,7 +105,7 @@
 %\clubpenalty=500
 %\widowpenalty=500
 
-%\usepackage[perpage]{footmisc} %Range of footnote options
+\usepackage[perpage]{footmisc} %Range of footnote options
 
 
 % *****************************************************************************
@@ -132,9 +134,9 @@
 
 % *********** To change the name of Table of Contents / LOF and LOT ************
 
-%\renewcommand{\contentsname}{My Table of Contents}
-%\renewcommand{\listfigurename}{My List of Figures}
-%\renewcommand{\listtablename}{My List of Tables}
+\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\listtablename}{List of Tables}
 
 
 % ********************** TOC depth and numbering depth *************************
@@ -155,7 +157,7 @@
 % The default value of both \appendixtocname and \appendixpagename is `Appendices'. These names can all be changed via:
 
 %\renewcommand{\appendixtocname}{List of appendices}
-%\renewcommand{\appendixname}{Appndx}
+%\renewcommand{\appendixname}{Appendix}
 
 % *********************** Configure Draft Mode **********************************
 
