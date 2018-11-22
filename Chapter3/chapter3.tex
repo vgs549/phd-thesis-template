@@ -6,9 +6,9 @@
 
 % **************************** Define Graphics Path **************************
 \ifpdf
-    \graphicspath{{Chapter3/Figs/Raster/}{Chapter3/Figs/PDF/}{Chapter3/Figs/}}
+    \graphicspath{{Chapter3/}}
 \else
-    \graphicspath{{Chapter3/Figs/Vector/}{Chapter3/Figs/}}
+    \graphicspath{{Chapter3/}}
 \fi
 
 \begin{abstract}
@@ -19,7 +19,7 @@ Deforestation rates in Brazil had decline in the past decade. Great part of this
 \end{abstract}
 
 \section{Introduction}
-\label{S:1}
+\label{S:3.1}
 %Describing policies that decreased the rate of deforestation in Brazil
 The clear-cutting of forests plays a central role in many environmental threats of our time, including global climate change, habitat degradation, and species extinction. However, deforestation rates in Brazil had decline in the past decade. Great part of this effort comes from the environmental policies used as instruments to encourage forest preservation. The best example is the satellite monitoring program that allowed the environmental police to fastening the response to punish clear-cutting agents.\footnote{In 2004, the Brazilian government created the Action Plan for the Prevention and Control of Deforestation in the Legal Amazon (PPCDAm in Portuguese). Its purpose was to plan development, control land use and ensure compliance with the environmental law and promote sustainable practices. In order to control land use and prevent further deforestation, the PPCDAm also included the satellite-based monitoring programme PRODES (Projeto de Estimativa do Desflorestameno da Amaz\^{o}nia in Portuguese) \citep{inpe} that recorded incidents of deforestation throughout the year within the policy area.} % the establishment of several national parks, national forests, extractivist and biological reserve areas, and the recognition of indigenous and traditional territories \citep{araujo}.
 
@@ -66,13 +66,23 @@ Previous studies focused on the effectiveness of the environmental policy in the
 
 A previous study of deforestation trends (see Chapter 2) showed that there is evidence of human behaviour changes due to the environmental monitoring policy and that cloud cover may have acted as an impediment to the performance of that environmental program. In turn, this study proposes to investigate whether the environmental policy was effective in that region. We were interested in addressing (1) if the probability of deforestation was higher in the region not controlled by a specific environmental policy, (2) what factors may be influencing the risk of the two regions to be deforested? and, (3) whether changing behaviour undermined the effect of the policy. More specifically, we want to examine if the policy was sufficient and capable of increasing or maintained the probability of forest remaining since the rate of deforestation decreased in the last fifteen years (see fig \ref{fig:defAmazonMA}). To explore this assumption, we study the Ecological Tension Zone of Maranhão.
 
-[Figure \ref{fig:defAmazonMA} about here ]
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth, inner]{Normalizeddeforestation.png}
+\caption{Source: \citep{MMMAwebsite}.}
+\label{fig:defAmazonMA}
+\end{figure}
 
 %Falar sobre a area que o estudo abrange, em termos dos municipios. Que munics sao esses?
 \subsubsection{Site}
-The studied area comprises a total of 29,307 km$^{2}$ and corresponds to 21 municipalities. All the municipalities are crossed by the artificial division that occurs approximately 44$^{\circ}$ west of the meridian and was established in 1953 in order to plan the economic development of the region comprised of the tropical forest areas of Maranhão state called Legal Maranhão (LM). We depict this delineation in Figure \ref{fig:delimitacao}
+The studied area comprises a total of 29,307 km$^{2}$ and corresponds to 21 municipalities. All the municipalities are crossed by the artificial division that occurs approximately 44$^{\circ}$ west of the meridian and was established in 1953 in order to plan the economic development of the region comprised of the tropical forest areas of Maranhão state called Legal Maranhão (LM). We depict this delineation in Figure \ref{fig:delimitacao}.
 
-[Figure \ref{fig:delimitacao} about here ]
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth, inner]{chp3_studyarea.png}
+\caption{Source: \citep{MMMAwebsite,nugeo_2018}.}
+\label{fig:delimitacao}
+\end{figure}
 
 According to \citet{ferreira_2008, CELENTANO_2017, costa_2018}, recent forest losses in the studied region have been due to the creation of settlement projects, illegal logging, pasture, subsistence agriculture and commodities. During the 40's, Maranhão had more than 200,000 km$^{2}$ uninhabited land, which included transition forest, Cerrado, and pre-Amazon forest. The situation backed the creation of several settlement projects along with the creation of federal roads and the Carajas railway project.
 
@@ -94,7 +104,38 @@ Freely available and with high temporal resolution, MODIS sensor has two instrum
 
 To derive our dataset, we use two products created by MODIS sensor: MCD12Q1 and MOD13Q1. These products were retrieved from the online Application for Extracting and Exploring Analysis Ready Samples (AppEEARS) tool courtesy of the NASA EOSDIS Land Processes Distributed Active Archive Center (LP DAAC), USGS/Earth Resources Observation and Science (EROS) Center, Sioux Falls, South Dakota, \citep{didan_2015,didan_munoz_2015,sulla_2015,sulla2_2018}. The MODIS Land Cover Type Product (MCD12Q1) provides 13 science data sets (SDSs) that map global land cover at 500m spatial resolution at annual time steps for six different land cover legends from 2001-2016 and includes 5 legacy classification schemes such as the University of Maryland classification (UMD) (see Table \ref{UMD}), which recognises 17 classes, covering natural vegetation (11 classes), mosaic lands (2 classes), and non-vegetated lands (4 classes) \citep{setiawan_2014, friedl_2018}. 
 
-[Table \ref{UMD} about here]
+\begin{table}[H]
+\footnotesize
+\caption{University of Maryland (UMD) legend and class definitions}
+\begin{tabularx}{\linewidth}{X B X}
+\hline
+\hline
+Name & Class & \centering\arraybackslash Description\\
+\hline
+Water	&	0	&	At least 60\% of area is covered by permanent water bodies	\\
+Evergreen Needleleaf forest	&	1	&	Needleleaf Forests 1 Dominated by evergreen conifer trees (canopy >2m). Tree cover >60\%.	\\
+Evergreen Broadleaf forest	&	2	&	Dominated by evergreen broadleaf and palmate trees (canopy >2m). Tree cover >60\%.	\\
+Deciduous Needleleaf forest	&	3	&	Dominated by deciduous needleleaf (larch) trees (canopy >2m). Tree cover >60\%.	\\
+Deciduous Broadleaf forest	&	4	&	Dominated by deciduous broadleaf trees (canopy >2m). Tree cover >60\%.	\\
+Mixed forest	&	5	&	Dominated by neither deciduous nor evergreen (40-60\% of each) tree type (canopy >2m). Tree cover >60\%.	\\
+Closed shrublands	&	6	&	Dominated by woody perennials (1-2m height) >60\% cover.	\\
+Open shrublands	&	7	&	 Dominated by woody perennials (1-2m height) 10-60\% cover.	\\
+Woody savannas	&	8	&	Tree cover 30-60\% (canopy >2m).	\\
+Savannas	&	9	&	Tree cover 10-30\% (canopy >2m).	\\
+Grasslands	&	10	&	 Dominated by herbaceous annuals (<2m).	\\
+Permanent Wetlands	&	11	&	Permanently inundated lands with 30-60\% water cover and >10\% vegetated cover.	\\
+Croplands	&	12	&	At least 60\% of area is cultivated cropland.	\\
+Urban and built-up	&	13	&	At least 30\% impervious surface area including building materials, asphalt, and vehicles.	\\
+Cropland/Natural Vegetation Mosaics	&	14	&	Mosaics of small-scale cultivation 40-60\% with natural tree, shrub, or herbaceous vegetation	\\
+Non-Vegetated Land	&	15	&	At least 60\% of area is non-vegetated barren (sand, rock, soil) or permanent snow and ice with less than 10\% vegetation.	\\
+Unclassified	&	255	&	 Has not received a map label because of missing inputs	\\
+\hline
+\hline
+\multicolumn{3}{l}{\footnotesize  Note: Source: \cite{sulla2_2018}.}
+\end{tabularx}
+\label{UMD}
+\end{table}
+
 
 The MODIS Vegetation Indices (VI) (MOD13Q1) product consists of time series comparisons of global vegetation conditions that can be used to monitor the Earth's terrestrial change detection. The two vegetation indices that we derive from these are the Normalized Difference Vegetation Index (NDVI) and the Enhanced Vegetation Index (EVI). The NDVI is a normalized transformation of the NIR (Near Infrared) to the red reflectance ratio standardized to range from -1 to 1. The EVI is an optimisation of the vegational signal that minimises noises. This index has been reported to be more responsive to canopy structural variations including canopy type. The EVI formula is written as: 
 
@@ -123,7 +164,22 @@ where $\rho_{red}$ and $\rho_{NIR}$ are the surface bidirectional reflectance fa
 
 To compose the survival dataset, we collected the 16-days-250m image from first period and compared to the 16-days image from the second period of the same month. First, we used two masks in the analysis, the Goodness of Fit mask and Land Cover mask. The Goodness mask was used to filter pixels flagged with bad quality and, for the Land Mask, we resampled the rasters to 250m and applied the mask to differentiate pixels from land, forest, built-in and water. Through comparison it was possible to detect if the pixel with NDVI and EVI values survived from period one to period two within the month. This approach was undertaken for all the images corresponding to NDVI and EVI values for each 2 periods of the month of each year, which corresponds to 776 image analysis. For leap years, the process stopped at the land cover mask filtering process and used the first period of 16-days as the main period. To compose the dataset, we created a Boolean list of every image acknowledging if the pixel survived - not disturbed - during that period or not, then we aggregate the list to a year periods and, compute the corresponding year of deforestation. To check if the pixel survived, we considered the assumption explained in Table \ref{assumption}. At the end of the process, pixels were selected within the area studied (see Figure \ref{fig:delimitacao}) - measured departing from the artificial Legal Amazon line to the west and east portion of the municipalities. When the pixel had a variation greater than 0.1 within a month, it was considered a disturbance which we consider a restricted model.
 
-[Table \ref{assumption} about here]
+\begin{table}[H]
+\footnotesize
+\caption{Algorithm Assumption}
+\begin{tabularx}{\linewidth}{X X X}
+\hline
+\hline
+$NDVI_{1} > NDVI_{2}$	& ->  $NDVI_{1} - NDVI_{2}$	 & Numbers (1) and (2) refer to the order of the period of the month \\
+$NDVI_{1} <= NDVI_{2}$	& ->  $NDVI_{1} = NDVI_{2}$	 & Numbers (1) and (2) refer to the order of the period of the month. The second equation assumes that values did not change within the month and then the value assigned is from the last observation	\\
+\hline
+$EVI_{1} > EVI_{2}$	& ->  $EVI_{1} - EVI_{2}$	 & Numbers (1) and (2) refer to the order of the period of the month \\
+$EVI_{1} <= EVI_{2}$	& ->  $EVI_{1} = EVI_{2}$	 & Numbers (1) and (2) refer to the order of the period of the month. The second equation assumes that values did not change within the month and then the value assigned is from the last observation 	\\
+\hline
+\hline
+\end{tabularx}
+\label{assumption}
+\end{table}
 
 To obtain the cloud cover dataset, first we used the Goodness mask to create an image from 16-days first and second period containing only pixels flagged with clouds. After creating the image for a month, we summed all months images in order to have the number of months that a pixel had a cloud upon it. With these results we performed a Kernel Regression of share of deforested pixels on number of periods with cloud cover to check the threshold period for cloud cover persistence. We used the optimal bandwidth suggested by \citet{bowman_azzalini_1997} with 1000 replications with cross-validation. With the identified threshold, we applied a third mask called Cloud Mask to all the images processed of each year before conducting the Boolean List. If within a year, the pixel was equal or exceeded the threshold, then it was flagged as a clouded persistence pixel. 
 
@@ -223,12 +279,51 @@ The first approach considers the non parametric estimation of \citet{kaplanandme
 %MA + ML and %Log Rank test on Regions
 When checking for the all studied area, it's valid to affirm that the chance of survival of the forests through the analysis of pixels was higher in the Cerrado Maranhão (MA) than in Legal Maranhão (LM) (see Figure \ref{fig:km-total}). For the 529,680 pixel analysis, the rate of survival is lower for EVI values in all settings. At 2001, the rate of survival for EVI pixels in the whole region was about 59\% against 61\% of NDVI pixels and, in 2010, the rate of survival decreased to 2\% and 3.2\%, respectively (see Table \ref{tab:KM_estimate}). The Log Rank test and Weighted Log Rank test confirms that the stratified sample differs in terms of distribution. 
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{KM_NDVI_complete.jpg}
+\caption{Kaplan Meier Fitter for NDVI values in Region (LM+MA)}
+\label{fig:km-total}
+\end{figure}
+
+\begin{table}[H]
+\footnotesize
+\caption{Kaplan Meier Estimation}
+\begin{tabularx}{\linewidth}{l XXXXXX}
+\hline
+\hline
+Time	&	Numbers at risk	&	Number of events	&	Survival 	&	Standard Errors  & lower 95\% CI & upper 95\% CI \\
+\hline
+Region  &&&&&& \\	
+2001	&	512017	&	197454	&	0.61436	&	6.80E-04	&	0.61303	&	0.6157	\\
+2005	&	71707	&	263281	&	0.10016	&	4.20E-04	&	0.09934	&	0.10098	\\
+2011	&	20594	&	34998	&	0.0318	&	2.45E-04	&	0.03133	&	0.03229	\\
+2015	&	3189	&	15180	&	0.00216	&	6.48E-05	&	0.00203	&	0.00229	\\
+\hline
+Region MA &&&&&& \\												\\
+2001	&	302075	&	96251	&	0.68137	&	0.000848	&	0.6797	&	0.683	\\
+2005	&	58271	&	162794	&	0.14245	&	0.000636	&	0.1412	&	0.1437	\\
+2011	&	19179	&	27662	&	0.05087	&	0.0004	&	0.0501	&	0.0517	\\
+2015	&	2946	&	14404	&	0.00319	&	0.000103	&	0.003	&	0.0034	\\
+\hline
+Region LM &&&&&& \\												\\
+2001	&	209942	&	101203	&	0.517948	&	1.09E-03	&	0.515815	&	0.52009	\\
+2005	&	13436	&	100487	&	0.039306	&	4.24E-04	&	0.038484	&	0.040146	\\
+2011	&	1415	&	7336	&	0.004363	&	1.44E-04	&	0.00409	&	0.004654\\
+2015	&	243	&	776	&	0.000667	&	5.63E-05	&	0.000565	&	0.000787\\
+\hline
+\hline
+\end{tabularx}%
+\label{tab:KM_estimate}%
+\end{table}%
+
 %MA
-For the Cerrado Maranhão (MA), the Kaplan Meier fitter shows that from the 315,904 pixels, in 2001, between 64\% to 68\% of pixels had a chance of survival considering both vegetation indices. For 2010, the chance of survival decreased to the range of 3\% to 5\%. At the end of the studied period, the chance of survival for pixels within Cerrado Maranhão was around 0.3\% (see upper left graph from Figure \ref{fig:km-evi} and Figure \ref{fig:km-ndvi}) and Table \ref{tab:KM_estimate}. The median time of survival for the model was two years. This means that the half life of the sample pixels was around two years (the 50th percentile).
+For the Cerrado Maranhão (MA), the Kaplan Meier fitter shows that from the 315,904 pixels, in 2001, between 64\% to 68\% of pixels had a chance of survival considering both vegetation indices. For 2010, the chance of survival decreased to the range of 3\% to 5\%. At the end of the studied period, the chance of survival for pixels within Cerrado Maranhão was around 0.3\% (see upper left graph from Figure \ref{fig:km-evi} and Figure \ref{fig:km-ndvi}, and Table \ref{tab:KM_estimate}). The median time of survival for the model was two years. This means that the half life of the sample pixels was around two years (the 50th percentile).
 
 %MA + clouds 
 
 Sub-setting the survival curves by the presence of Clouds, it's possible to identify that pixels with no clouds in the studied period had a higher rate of survival comparing to pixels with clouds. At the end of 2001, the rate of survival for pixels with no clouds was about 66.6\% to 71.2\% for both indices. In 2005, the rate lowered to around 15\% and, in 2015, the chance of survival of the forests was approximately 0.4\%. Looking to the survival curve of pixels covered by clouds, the chance of forest survival at 2001 was around 61\% to 65\%, then decreased to 11\% and 13\% in 2005. The rate of survival for forests in 2015 was around 0.2\% for both vegetation indices (see upper right graph from Figure \ref{fig:km-evi} and Figure \ref{fig:km-ndvi} ). The median time of survival for the survival curves stratified by clouds did not change from the original set. 
+
 
 %Log Rank test on MA clouds
 
@@ -240,6 +335,21 @@ The Legal Maranhão (LM) experienced a similar pattern in which the median time 
 %Log Rank test on ML clouds
 It was performed the Log Rank test \citep{Peto_1972} to check whether the two sub samples were originated from the same distribution and the differences from these survival curves were due to other characteristics than the presence of clouds. The test result showed that the two sub samples are from different distributions. It was also applied the generalized Wilcoxon test \citep{lee_wang_2003} which rejected the null hypothesis that the two series came from the same distribution origin. 
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{KM_EVI.png}
+\caption{Kaplan Meier Fitter for EVI values in LM and MA region}
+\label{fig:km-evi}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{KM_NDVI.png}
+\caption{Kaplan Meier Fitter for NDVI values in LM and MA region}
+\label{fig:km-ndvi}
+\end{figure}
+
+
 \subsection{Semi parametric Analysis} \label{resultssection2}
 
 %MA + ML
@@ -250,15 +360,99 @@ Starting the analysis looking to the whole Region, the preferred model was the N
 
 For this model, we check the proportional hazard assumption with plots of each estimated regression coefficient as a function of time through the smoothed scaled Schoenfeld residuals. The results showed that each risk factor curve presents a flat format suggesting that the proportional hazard assumption holds. To access the goodness of fit of this model, we plotted the graph of deviance residuals against the survival time. The results showed that the residuals were distributed about zero showing a good fit of the model. 
 
+\begin{table}[H]
+\footnotesize
+\caption{Cox Proportional Hazard Model - Region}
+\begin{tabularx}{\linewidth}{X YYYYY}
+\hline
+\hline
+Variables	&	Regression Coefficient	&	Relative Hazards	&	Standard Errors	&	z score & Pr (>|z|) \\
+\hline
+Clouds	&	0.015	&	1.015	&	0.004	&	3.634	&	3E-04	***	\\	
+Pas	&	-0.049	&	0.953	&	0.010	&	-4.912	&	9E-07	***	\\	
+Mining	&	0.340	&	1.405	&	0.022	&	15.633	&	<	2E-16	***	\\
+Elevation	&	0.001	&	1.001	&	0.003	&	0.173	&	0.86		\\	
+Markets	&	0.063	&	1.065	&	0.010	&	5.998	&	2E-09	***	\\	
+Municipalities	&	0.175	&	1.191	&	0.026	&	6.842	&	8E-12	***	\\	
+Rivers	&	0.252	&	1.286	&	0.114	&	2.199	&	0.03	*	\\	
+Roads	&	-0.271	&	0.762	&	0.043	&	-6.250	&	4E-10	***	\\	
+Lat	&	-0.074	&	0.929	&	0.004	&	-19.147	&	<	2E-16	***	\\
+Lon	&	0.254	&	1.290	&	0.013	&	19.407	&	<	2E-16	***	\\
+Region	&	0.258	&	1.294	&	0.080	&	3.220	&	1E-03	**	\\	
+Cloud*Region	&	0.089	&	1.093	&	0.080	&	1.107	&	0.27 \\	
+\hline
+\hline
+\multicolumn{6}{l}{Signs stand for '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 and denote hazard ratios that are significantly}\\
+\multicolumn{6}{l}{ different from 1 at 99\%, 95\% and 90\% confidence levels. The model contains controls for grouped year}\\
+\multicolumn{6}{l}{periods. PAs stand for Protected Areas (Indigenous Lands and Conservational Units).}\\
+\end{tabularx}%
+\label{tab:CPH_NDVI_MA_ML}%
+\end{table}%
+
+
 %MA and %MA Diagnostics
 
 Sub-setting the sample to analyse the Cerrado Maranhão (MA), the NDVI model was preferred in many settings when accounting for concordance index (0.767) and k-fold model validation (0.30) (see Table \ref{kfold}. Table \ref{tab:CPH_NDVI_MA} shows the results of the specified model. Pixels covered by clouds decreases the risk of the pixel being deforested by 2\% compared to those pixels not covered by clouds. Pixels far from rivers increase relative hazard by 55\%. Distancing one unit from protected areas, the risk of deforestation increases by 4\%, the same occurs with mines with a increase of 32\% in the relative hazard. Distancing one unit from markets and municipalities increase hazard by 6\% and 8\%. However, distancing one unit from roads decreases the relative risk of the pixels been deforested in that area by 48\%. The diagnostics of the model corroborates to the assumption of proportional hazard during the studied period and the deviance residuals exhibit a good fit. 
+
+\begin{table}[H]
+\footnotesize
+\caption{Cox Proportional Hazard Model - Cerrado Maranhão (MA)}
+\begin{tabularx}{\linewidth}{X YYYYY}
+\hline
+\hline
+Variables	&	Regression Coefficient	&	Relative Hazards	&	Standard Errors	&	z score & Pr (>|z|) \\
+\hline
+Clouds	&	-0.015	&	0.98	&	0.004	&	-3.65	&	3E-04	***	\\	
+PAs	&	0.036	&	1.04	&	0.017	&	2.05	&	0.041	*	\\	
+Mining	&	0.275	&	1.32	&	0.028	&	10.00	&	<	2E-16	***	\\
+Elevation	&	0.020	&	1.02	&	0.005	&	4.18	&	3E-05	***	\\	
+Markets	&	0.061	&	1.06	&	0.017	&	3.48	&	0.001	***	\\	
+Municipalities	&	0.077	&	1.08	&	0.033	&	2.34	&	0.019	*	\\	
+Rivers	&	0.436	&	1.55	&	0.150	&	2.90	&	0.004	**	\\	
+Roads	&	-0.660	&	0.52	&	0.052	&	-12.61	&	<	2E-16	***	\\
+Lat	&	-0.149	&	0.86	&	0.007	&	-21.59	&	<	2E-16	***	\\
+Lon	&	0.258	&	1.29	&	0.017	&	15.21	&	<	2E-16	***	\\
+\hline
+\hline
+\multicolumn{6}{l}{Signs stand for '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 and denote hazard ratios that are significantly }\\
+\multicolumn{6}{l}{different from 1 at 99\%, 95\% and 90\% confidence levels. The model contains controls for grouped year}\\
+\multicolumn{6}{l}{periods. PAs stand for Protected Areas. Indigenous Lands and Conservational Units.}\\
+\end{tabularx}%
+\label{tab:CPH_NDVI_MA}%
+\end{table}%
 
 
 %Teve que stratificar a analise para 3 cortes no tempo de 2000 a 2002, 2002 a 2005, 2005 a 2016. teve que fazer isso pq o teste PH assumiu que os fatores de riscos!!!
 
 %ML and %ML Diagnostics
 Following the same selection procedure adopted to the previous model, the two vegetation indices models for Legal Maranhão (LM) the NDVI model presented was favoured considering the c-index and the k-fold validation. Table \ref{tab:CPH_NDVI_ML} shows the results of the proportional hazard model for the Maranhão region under environmental policy (LM). Clouds are not significant in this model and elevation has a constant effect on the relative hazard. Distancing one unit from protected areas, the risk of deforestation increases by almost 9\%. However, distancing from river basins decreases hazard by approximately 34\%. Distancing from roads in the policy area increases hazard by 25\%. The Legal Maranhão (LM) deviance residuals showed that the model presents a good fit with no pattern detected. The scaled Schoenfeld residuals also show a flat curve for all the risk factor variables. These results hold the assumption of the proportional hazard model.
+
+\begin{table}[H]
+\footnotesize
+\caption{Cox Proportional Hazard Model - Legal Maranhão (LM)}
+\begin{tabularx}{\linewidth}{X YYYYY}
+\hline
+\hline
+Variables	&	Regression Coefficient	&	Relative Hazards	&	Standard Errors	&	z score & Pr (>|z|) \\
+\hline
+Clouds	&	0.108	&	1.113	&	0.080	&	1.344	&	0.179			\\
+PAs	&	0.081	&	1.084	&	0.016	&	5.137	&	3E-07	***		\\
+Mining	&	-0.019	&	0.981	&	0.049	&	-0.387	&	0.699			\\
+Elevation	&	-0.011	&	0.989	&	0.004	&	-2.498	&	0.012	*		\\
+Markets	&	-0.023	&	0.977	&	0.015	&	-1.588	&	0.112			\\
+Municipalities	&	-0.070	&	0.932	&	0.045	&	-1.562	&	0.118			\\
+Rivers	&	-0.413	&	0.662	&	0.179	&	-2.307	&	0.021	*		\\
+Roads	&	0.224	&	1.251	&	0.085	&	2.645	&	0.008	**		\\
+Lat	&	-0.046	&	0.955	&	0.006	&	-8.218	&	2E-16	***		\\
+Lon	&	0.282	&	1.325	&	0.025	&	11.396	&	<	2E-16	***	\\
+\hline
+\hline
+\multicolumn{6}{l}{Signs stand for '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 and denote hazard ratios that are significantly }\\
+\multicolumn{6}{l}{different from 1 at 99\%, 95\% and 90\% confidence levels. The model contains controls for grouped year}\\
+\multicolumn{6}{l}{periods. PAs stand for Protected Areas. Indigenous Lands and Conservational Units.}\\
+\end{tabularx}%
+\label{tab:CPH_NDVI_ML}%
+\end{table}%
 
 %\subsubsection{Extended Cox Proportional Hazard Model}
 
@@ -267,33 +461,215 @@ Until this moment, the proportional hazards models are assumed to have risk fact
 
 To incorporate the spatially and temporal dependence, we include the ratio of neighbouring forested pixels for each pixel in four different periods (2001, 2006, 2011, 2016). We also include average values of rainfall and temperature distributed within the specified years and interact them with policy region of Legal Maranhão. Table \ref{tab:CPH_NDVI_MA_ML_time} shows the results from this setting. Clouds increase the chance of deforestation by 1.8\%. Distancing one unit from protected areas decreases hazard by 4.4\%. Distancing one unit from mines, increase hazard by 20\% and elevated areas increased hazard by 3.5\%. Distancing from roads decrease hazard by almost 18\%. Clouded pixels in the Legal Maranhão region does not have an effect on hazard. Observing the time dependent variables, having neighbouring pixels with forest increase the risk of being cleared by 31\%. Increasing rainfall and temperature in the whole region decreases hazard by 0.1\%. Finally, rainfall and temperature in the Legal Maranhão side has a different outcome for rainfall. High levels of precipitation increases hazard by 0.1\% and increasing temperature decreases hazard by 1.4\%. 
 
+\begin{table}[H]
+\footnotesize
+\caption{Cox Proportional Hazard Model Time Dependent - Region}
+\begin{tabularx}{\linewidth}{X YYYYY}
+\hline
+\hline
+Variables	&	Regression Coefficient	&	Relative Hazards	&	Standard Errors	&	z score & Pr (>|z|) \\
+\hline
+Clouds	&	0.018	&	1.018	&	0.01	&	3.20	&	0.001	**	\\	
+Pas	&	-0.045	&	0.956	&	0.01	&	-3.07	&	0.002	**	\\	
+Mining	&	0.187	&	1.205	&	0.03	&	6.40	&	2E-10	***	\\	
+Elevation	&	0.034	&	1.035	&	0.00	&	8.42	&	<	2E-16	***	\\
+Markets	&	0.024	&	1.025	&	0.02	&	1.56	&	0.118		\\	
+Municipalities	&	-0.057	&	0.945	&	0.03	&	-1.66	&	0.097	.	\\	
+Rivers &	-0.452 &	0.637 &	0.155 &	-2.915 &	0.003	** \\
+Roads	&	-0.197	&	0.821	&	0.06	&	-3.36	&	0.001	***	\\	
+Lat	&	0.000	&	1.000	&	0.01	&	-0.06	&	0.952		\\	
+Lon	&	-0.034	&	0.966	&	0.02	&	-2.05	&	0.041	*	\\	
+Region	&	0.293	&	1.341	&	0.10	&	3.06	&	0.002	**	\\	
+Cloud*Region	&	0.018	&	1.018	&	0.01	&	1.52	&	0.130		\\	
+Neighbours	&	0.274	&	1.315	&	0.03	&	10.44	&	<	2E-16	***	\\
+Rainfall	&	-0.001	&	0.999	&	0.00	&	-6.47	&	1E-10	***	\\	
+Rainfall*Region	&	0.001	&	1.001	&	0.00	&	6.61	&	4E-11	***	\\	
+Temperature	&	-0.006	&	0.994	&	0.00	&	-2.28	&	2E-02	*	\\	
+Temperature*Region	&	-0.014	&	0.986	&	0.00	&	-5.36	&	8E-08	***	\\	
+\hline
+\hline
+\multicolumn{6}{l}{Signs stand for '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 and denote hazard ratios that are significantly }\\
+\multicolumn{6}{l}{different from 1 at 99\%, 95\% and 90\% confidence levels. The model contains controls for grouped and }\\
+\multicolumn{6}{l}{time-dependent year periods. PAs stand for Protected Areas. Indigenous Lands and Conservational Units.}\\
+\end{tabularx}%
+\label{tab:CPH_NDVI_MA_ML_time}%
+\end{table}%
+
+
 %CoxPH Time Dependent MA 
 We applied the same procedure to both areas apart. Cerrado Maranhão (MA) results are presented in Table \ref{tab:CPH_NDVI_MA_time} and Legal Maranhão (LM) results are shown in Table \ref{tab:CPH_NDVI_ML_time}. The results from the area not monitored shows that the presence of Clouds has no effect on the relative hazard. Forested pixels distant from protected areas decreases the risk of being deforested by 18\%. Distancing from roads and rivers also decreases hazard by 23\% and 33\%. Looking to the time dependent controls, we can see that forested pixels surrounded by forest increase 2 time the relative hazard. Rainfall decreases the risk of the pixel being deforested by 0.1\% and high temperature increases the chance of deforestation by 6.3\%. 
+
+\begin{table}[H]
+\footnotesize
+\caption{Cox Proportional Hazard Model Time Dependent - Cerrado Maranhão (MA)}
+\begin{tabularx}{\linewidth}{X YYYYY}
+\hline
+\hline
+Variables	&	Regression Coefficient	&	Relative Hazards	&	Standard Errors	&	z score & Pr (>|z|) \\
+\hline
+Clouds	&	0.003	&	1.003	&	0.006	&	0.534	&	0.593		\\	
+PAs	&	-0.207	&	0.814	&	0.024	&	-8.446	&	<	2E-16	***	\\
+Mining	&	0.055	&	1.057	&	0.041	&	1.352	&	0.176	\\		
+Elevation	&	0.066	&	1.069	&	0.006	&	10.581	&	<	2E-16	***	\\
+Markets	&	0.177	&	1.193	&	0.026	&	6.881	&	6E-12	***	\\	
+Municipalities	&	-0.243	&	0.784	&	0.045	&	-5.373	&	8E-08	***	\\	
+Rivers	&	-0.455	&	0.635	&	0.204	&	-2.232	&	0.026	*	\\	
+Roads	&	-0.269	&	0.764	&	0.072	&	-3.713	&	2E-04	***	\\	
+Lat	&	-0.282	&	0.755	&	0.011	&	-24.792	&	<	2E-16	***	\\
+Lon	&	0.155	&	1.167	&	0.025	&	6.180	&	6E-10	***	\\	
+Neighbours	&	0.742	&	2.099	&	0.040	&	18.379	&	<	2E-16	***	\\
+Rainfall	&	-0.009	&	0.991	&	0.000	&	-26.481	&	<	2E-16	***	\\
+Temperature	&	0.062	&	1.063	&	0.003	&	19.476	&	<	2E-16	***	\\
+\hline
+\hline
+\multicolumn{6}{l}{Signs stand for '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 and denote hazard ratios that are significantly }\\
+\multicolumn{6}{l}{different from 1 at 99\%, 95\% and 90\% confidence levels. The model contains controls for grouped and}\\
+\multicolumn{6}{l}{time-dependent year periods. PAs stand for Protected Areas. Indigenous Lands and Conservational Units.}\\
+\end{tabularx}%
+\label{tab:CPH_NDVI_MA_time}%
+\end{table}%
+
 %CoxPH Time Dependent ML
 In the surveilled area, Table \ref{tab:CPH_NDVI_ML_time} indicates that the pattern differs from the previous result. The presence of clouds increase the risk of a pixel being deforested by 3\%. Distancing one unit from markets and mining projects increases hazard by 9.7\% and 1.6\%, accordingly Being located to neighbouring forested pixels increases hazard by 33\% and the increasing level of temperature decreases the relative risk of a pixel being deforested by 2.1\%.
 
-\subsubsection{Different areas different results? Robustness Checks} \label{resultssection2.1}
+\begin{table}[H]
+\footnotesize
+\caption{Cox Proportional Hazard Model Time Dependent - Legal Maranhão (LM)}
+\begin{tabularx}{\linewidth}{X YYYYY}
+\hline
+\hline
+Variables	&	Regression Coefficient	&	Relative Hazards	&	Standard Errors	&	z score & Pr (>|z|) \\
+\hline
+Clouds	&	0.030	&	1.030	&	0.011	&	2.592	&	0.010	**		\\
+Pas	&	-0.060	&	0.941	&	0.020	&	-3.055	&	0.002	**		\\
+Mining	&	0.175	&	1.191	&	0.050	&	3.518	&	4E-04	***		\\
+Elevation	&	0.016	&	1.016	&	0.006	&	2.724	&	0.006	**		\\
+Markets	&	0.093	&	1.097	&	0.021	&	4.497	&	7E-06	***		\\
+Municipalities	&	-0.102	&	0.903	&	0.054	&	-1.901	&	0.057	.		\\
+Rivers	&	-0.090	&	0.914	&	0.241	&	-0.374	&	0.708			\\
+Roads	&	0.026	&	1.026	&	0.103	&	0.252	&	0.801			\\
+Lat	&	0.034	&	1.034	&	0.008	&	4.149	&	3E-05	***		\\
+Lon	&	-0.145	&	0.865	&	0.027	&	-5.338	&	9E-08	***		\\
+Neighbours	&	0.289	&	1.335	&	0.034	&	8.37	&	<	2E-16	***	\\
+Rainfall	&	0.000	&	1.000	&	0.000	&	1.075	&	0.283			\\
+Temperature	&	-0.021	&	0.979	&	0.001	&	-20.965	&	<	2E-16	***	\\
+\hline
+\hline
+\multicolumn{6}{l}{Signs stand for '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 and denote hazard ratios that are significantly }\\
+\multicolumn{6}{l}{different from 1 at 99\%, 95\% and 90\% confidence levels. The model contains controls for grouped and}\\
+\multicolumn{6}{l}{time-dependent year periods. PAs stand for Protected Areas. Indigenous Lands and Conservational Units.}\\
+\end{tabularx}%
+\label{tab:CPH_NDVI_ML_time}%
+\end{table}%
+
+\subsection{Different areas different results? Robustness Checks} \label{resultssection2.1}
 
 \subsubsection{Buffer Zone}
 We decide to deepen our analysis by expanding the area to immediately outside the studied region. We constructed a buffer of 0.2 decimal degrees which corresponds to our average maximum reach of our risk factors in the Region. We exclude the area previously analysed to check if the results are consistently different from our findings. We believe that the uniqueness of our findings comes from the fact that the two areas (MA and LM) are similar in all aspects except from the implementation of the environmental policy. 
 
 We first approach with the non parametric analysis. The Kaplan Meier fitter shows that the chance of survival of the forests through the analysis of pixels was higher in the Legal Maranhão (LM) than in Cerrado Maranhão (MA) (upper right from Graph \ref{fig:km-total-buffer}). From the 91,346 pixels observations, the rate of survival for the pixels in the buffer region was about 55\% in 2001 and, in 2005, the rate of survival decreased to approximately 8\%. In 2015, the rate was equivalent to 0.25\%. The Log Rank test and Weighted Log Rank test confirms that the stratified sample differs in terms of distribution. Dividing the sample by region, it's possible to identify that pixels within Legal Maranhão buffer (LM) had a higher rate of survival comparing to pixels within Cerrado Maranhão buffer (MA). This result differs from our findings for the Region. The presence of clouds in this subset still shows that the chance of survival was higher in the Legal Maranhão (LM) side, see lower right in Graph \ref{fig:km-total-buffer}. 
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{KM_NDVI_buffer_total.jpg}
+\caption{Kaplan Meier Fitter for NDVI values in Buffer Zone}
+\label{fig:km-total-buffer}
+\end{figure}
+
+
 Table \ref{tab:CPH_NDVI_buffer} presents the results for the semiparametric model and Table \ref{tab:CPH_NDVI_buffer_time} shows the time dependent version of the specified model. Within the buffer zone, the presence of clouds has a negative impact on the risk of a pixel being deforested, the hazard decreases by 3\%. Distancing from protected areas increases hazard by 35\% and distancing from markets, municipalities centre and rivers decreases hazard by 18\%, 19\% and 61\%. The fact that the pixel is located in the buffer zone within the Legal Maranhão decreases the relative risk of clear cutting by 33\%. However, the presence of clouds in this same area increases hazard in 6\% comparing to pixels outside the limits. As with the sample area, we extend the model to account for changes in time. After controlling for spatial and temporal aspects, the results indicate that the presence of clouds conditioning on the surveilled area has no effect on the relative hazard. Region is still negative and significant. The relative hazard decreases in almost 99\% for pixels in the Legal Maranhão (LM). For the same area, increasing temperature and rainfall increases hazard by 0.2\% and 7\%, respectively.
 
 %Falar do teste cohens
 The results seem to differ from the original area (Figure \ref{fig:delimitacao}) and to endorse our findings we conduct a effect size measure for the two areas: the region and the buffer zone. Based on \citet{COHEN1977} we take differences of means expressed in terms of the pooled within regions standard deviation. Unlike significance tests, this index is independent of sample size. The pooled standard deviation is the square root of the average of the squared standard deviation of the two areas. According to \citet{COHEN1977}, if the two standard deviations are similar the root mean square will not differ much from the simple average of the two variances. In our setting, the Cohen Index is interpreted in terms of of the average percentile standing of the Region relative to the buffer zone. An index of 0.0 indicates that the mean of the Region is at the 50th percentile of the buffer zone, i.e the dissimilarities for the two areas are zero. In our results, the Cohen index presented a value of 0.59 which configures that the Region is at the 69th percentile of the buffer zone and thus these areas present substantial dissimilarities. We reject the null hypothesis that there is no difference between these groups. Effect sizes can also be interpreted in terms of the percent of distinction of one region score to another. A Cohen index of 0 indicates that the distribution of scores for one region overlaps completely with the distribution of scores of another region, there is 0\% of distinction. In our case, the index of 0.59 indicates a distinction of 33\% in the two distributions \citep{COHEN1977}.
 
+\begin{table}[H]
+\footnotesize
+\caption{Cox Proportional Hazard Model - Buffer Zone}
+\begin{tabularx}{\linewidth}{X YYYYY}
+\hline
+\hline
+Variables	&	Regression Coefficient	&	Relative Hazards	&	Standard Errors	&	z score & Pr (>|z|) \\
+\hline
+Clouds	&	-0.036	&	0.965	&	0.016	&	-2.183	&	0.029	*		\\
+PAs	&	0.297	&	1.350	&	0.024	&	12.189	&	<	0.000	***	\\
+Mining	&	-0.314	&	0.730	&	0.045	&	-7.021	&	0.000	***		\\
+Elevation	&	0.000	&	1.000	&	0	&	-3.610	&	0.000	***		\\
+Markets	&	-0.202	&	0.817	&	0.024	&	-8.358	&	<	0.000	***	\\
+Municipalities	&	-0.207	&	0.813	&	0.077	&	-2.697	&	0.007	**		\\
+Rivers	&	-0.934	&	0.393	&	0.322	&	-2.899	&	0.004	**		\\
+Roads	&	-0.113	&	0.893	&	0.142	&	-0.793	&	0.428			\\
+Lat	&	-0.122	&	0.885	&	0.047	&	-2.593	&	0.010	**		\\
+Lon	&	0.094	&	1.100	&	0.008	&	11.562	&	<	0.000	***	\\
+Region	&	-0.407	&	0.666	&	0.033	&	-12.212	&	<	0.000	***	\\
+Clouds*Region	&	0.058	&	1.060	&	0.021	&	2.726	&	0.006	**		\\
+\hline
+\hline
+\multicolumn{6}{l}{Signs stand for '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 and denote hazard ratios that are significantly}\\
+\multicolumn{6}{l}{ different from 1 at 99\%, 95\% and 90\% confidence levels. The model contains controls for grouped year}\\
+\multicolumn{6}{l}{periods. PAs stand for Protected Areas. Indigenous Lands and Conservational Units.}\\
+\end{tabularx}%
+\label{tab:CPH_NDVI_buffer}%
+\end{table}%
+
+\begin{table}[H]
+\footnotesize
+\caption{Cox Proportional Hazard Model Time Dependent - Buffer Zone}
+\begin{tabularx}{\linewidth}{X YYYYY}
+\hline
+\hline
+Variables	&	Regression Coefficient	&	Relative Hazards	&	Standard Errors	&	z score & Pr (>|z|) \\
+\hline
+Clouds	&	0.004	&	1.004	&	0.027	&	0.140	&	0.889			\\
+PAs	&	0.146	&	1.157	&	0.039	&	3.698	&	2E-04	***		\\
+Mining	&	0.141	&	1.152	&	0.067	&	2.112	&	0.035	*		\\
+Elevation	&	0.000	&	1.000	&	0.000	&	-1.631	&	0.103			\\
+Markets	&	-0.138	&	0.871	&	0.039	&	-3.518	&	4E-04	***		\\
+Municipalities	&	-0.265	&	0.767	&	0.113	&	-2.343	&	0.019	*		\\
+Rivers & -0.568	& 0.567 &	0.477 &	-1.191	& 0.234 \\
+Roads	&	-0.174	&	0.841	&	0.207	&	-0.839	&	0.401			\\
+Lat	&	0.072	&	1.074	&	0.042	&	1.703	&	0.089	.		\\
+Lon	&	0.056	&	1.058	&	0.015	&	3.645	&	3E-04	***		\\
+Region	&	-2.604	&	0.074	&	0.167	&	-15.627	&	<	2E-16	***	\\
+Clouds*Region	&	-0.005	&	0.995	&	0.032	&	-0.167	&	0.867			\\
+Neighbours	&	-0.041	&	0.960	&	0.031	&	-1.312	&	0.189			\\
+Rainfall	&	-0.001	&	0.999	&	0.001	&	-1.422	&	0.155			\\
+Rainfall*Region	&	0.002	&	1.000	&	0.001	&	3.150	&	0.002	**		\\
+Temperature	&	0.003	&	1.003	&	0.003	&	0.896	&	0.370			\\
+Temperature*Region	&	0.068	&	1.070	&	0.005	&	12.433	&	<	2E-16	***	\\
+\hline
+\hline
+\multicolumn{6}{l}{Signs stand for '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 and denote hazard ratios that are significantly }\\
+\multicolumn{6}{l}{different from 1 at 99\%, 95\% and 90\% confidence levels. The model contains controls for grouped and }\\
+\multicolumn{6}{l}{time-dependent year periods. PAs stand for Protected Areas. Indigenous Lands and Conservational Units.}\\
+\end{tabularx}%
+\label{tab:CPH_NDVI_buffer_time}%
+\end{table}%
+
+
 \subsubsection{Settlements} \label{resultssection3.1}
 
 We have examined the Region (MA and LM), considering their spatial definition. To further investigate whether the environmental policy demonstrated to be effective under the presence of clouds we also look specifically to the survival time of forested pixels within settlements which are known to be allocated and supervised by Brazil’s Special Secretary of Agrarian Development, and there is virtually no law enforcement in these areas. Usually, the fines are sent to INCRA and not to the settler. Usually, the justice system claims that the agrarian agency does not commit an environmental crime because the agency leaves part of the forest of the whole settlement intact, but cannot oblige the granted slots to detain forest clearing. Under pressure by public opinion, INCRA established in 2012 the 'Green Settlement Program' to deal with the environmental debt of settlements. This policy, however, is still not implemented and there is no feasibility that could endorse the effectiveness of this policy \citet{PACHECO,PERES2}. Under these circumstances, and in an attempt to corroborate with the finding results, this study took from the observed region, settlements areas from both sides MA and ML (see figure \ref{fig:delimitacaosett} since they are not directly affected by any surveillance monitoring policy in order to check whether the time of survival of the pixels differed or was equal to the rest of the region.
 
-The survival analysis in settlements follows the  Kaplan Meier fitter presented in  Section \ref{resultssection1} and the Cox proportional hazard model with time dependent variable as demonstrated in Section \ref{resultssection2}. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth, inner]{Settlements_Map.png}
+\caption{Source: \citep{MMMAwebsite,nugeo_2018}.}
+\label{fig:delimitacaosett}
+\end{figure}
+
+The survival analysis in settlements follows the  Kaplan Meier fitter presented in Section \ref{resultssection1} and the Cox proportional hazard model with time dependent variable as demonstrated in Section \ref{resultssection2}. 
 
 %KM fitter
 The Kaplan Meier fitter shows that from the 37,532 pixels, in 2001, about 55\% of pixels had a chance of survival considering both vegetation indices. For 2010, the chance of survival decreased to the range of 5.8\% to 6.1\%. At the end of the studied period, the chance of survival for pixels within settlements were around 0.4\% and 0.6\% (see upper and bottom left graph from Figure \ref{fig:km-total-sett}). The median time of survival for the model was two years. This means that the half life of the sample pixels was around two years (the the 50th percentile). Sub-setting the survival curves by region, it's possible to identify that pixels within Legal Maranhão (LM) had a higher rate of survival comparing to pixels within Cerrado Maranhão (MA). The presence of clouds in this subset still shows that the chance of survival was higher in the Legal Maranhão (not shown). 
 
 It was performed the Log Rank test \citep{Peto_1972} to check whether the two sub samples were originated from the same distribution and the differences from these survival curves are produced from other characteristics than the region. The results from the Log Rank test evidenced that these sub samples came from the same distribution which cannot reject the null hypothesis. However, given that the majority of the settlement pixels are deforested within two years, it was also applied the generalized Wilcoxon test, which can be also referred to Log Rank Weighted test, because it gives more weight to early deforestation than later deforestation, while Log Rank test gives equal weight to all deforestation process \citep{lee_wang_2003}. From the Log Rank Weighted test, at 5\% level, the two sub samples actually come from different distribution.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{KM_NDVI_sett_total.jpg}
+\caption{Kaplan Meier Fitter for NDVI values in Settlements}
+\label{fig:km-total-sett}
+\end{figure}
 
 %Cox time fitter
 The results from the proportional hazard model is shown in Table \ref{tab:CPH_NDVI_sett}. The presence of clouds decreases hazard by 5\%. Elevation has a constant relative hazard. Distancing from municipalities centre decreases hazard by almost 27\%. Forested pixels within settlements and under the monitored policy area has a decreasing risk of being deforested comparing to non monitored areas. However, the presence of clouds in settlements located in the Legal Maranhão side increases the hazard by 4.2\%.
@@ -301,6 +677,68 @@ The results from the proportional hazard model is shown in Table \ref{tab:CPH_ND
 
 The extended Cox model presented in equation \ref{eq:8} is also applied to the settlements. The presence of clouds has no effect in the presence of the relative hazard. Distancing one unit from protected areas and mines increase by 12\% and 22\% the relative hazard, as can be seen from Table \ref{tab:CPH_NDVI_sett_time}. Municipalities centre are not significant in the model. The relative hazard decreases 80\% if the pixels are far from markets. Rivers and roads have no impact on relative hazard. The incidence of clouds in settlement pixels within the Legal Maranhão has no impact on the relative hazard. Increasing the level of rain decreases hazard by 0.01\%. Even though increasing the level of temperature increases the relative risk of a pixel being deforested, increasing the temperature in the Legal Maranhão decreases hazard by almost 3\%.
 
+\begin{table}[H]
+\footnotesize
+\caption{Cox Proportional Hazard Model - Settlements}
+\begin{tabularx}{\linewidth}{X YYYYY}
+\hline
+\hline
+Variables	&	Regression Coefficient	&	Relative Hazards	&	Standard Errors	&	z score & Pr (>|z|) \\
+\hline
+Clouds	&	-0.052	&	0.950	&	0.014	&	-3.778	&	2E-04	***		\\
+Pas	&	-0.011	&	0.989	&	0.045	&	-0.241	&	0.809			\\
+Mining	&	-0.419	&	0.658	&	0.085	&	-4.933	&	8E-07	***		\\
+Elevation	&	0.000	&	1.000	&	0.000	&	3.309	&	0.001	***		\\
+Markets	&	0.026	&	1.027	&	0.029	&	0.903	&	0.366			\\
+Municipalities	&	-0.306	&	0.737	&	0.084	&	-3.654	&	3E-04	***		\\
+Rivers	&	1.431	&	4.183	&	0.345	&	4.148	&	3E-05	***		\\
+Roads	&	0.234	&	1.264	&	0.139	&	1.685	&	0.092	.		\\
+Lat	&	-0.154	&	0.857	&	0.018	&	-8.76	&	<	2E-16	***	\\
+Lon	&	0.332	&	1.393	&	0.048	&	6.944	&	4E-12	***		\\
+Region	&	-0.079	&	0.924	&	0.022	&	-3.525	&	4E-04	***		\\
+Clouds*Region	&	0.041	&	1.042	&	0.021	&	1.995	&	0.046	*		\\
+\hline
+\hline
+\multicolumn{6}{l}{Signs stand for '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 and denote hazard ratios that are significantly}\\
+\multicolumn{6}{l}{ different from 1 at 99\%, 95\% and 90\% confidence levels. The model contains controls for grouped year}\\
+\multicolumn{6}{l}{periods. PAs stand for Protected Areas. Indigenous Lands and Conservational Units.}\\
+\end{tabularx}%
+\label{tab:CPH_NDVI_sett}%
+\end{table}%
+
+\begin{table}[H]
+\footnotesize
+\caption{Cox Proportional Hazard Model Time Dependent - Settlements}
+\begin{tabularx}{\linewidth}{X YYYYY}
+\hline
+\hline
+Variables	&	Regression Coefficient	&	Relative Hazards	&	Standard Errors	&	z score & Pr (>|z|) \\
+\hline
+Clouds	&	0.031	&	1.032	&	0.020	&	1.535	&	0.125		\\
+PAs	&	0.116	&	1.123	&	0.066	&	1.766	&	0.077	.	\\
+Mining	&	0.573	&	1.774	&	0.111	&	5.162	&	2E-07	***	\\
+Elevation	&	0.000	&	1.000	&	0.000	&	2.376	&	0.018	*	\\
+Markets	&	-0.218	&	0.804	&	0.042	&	-5.232	&	2E-07	***	\\
+Municipalities	&	0.067	&	1.069	&	0.115	&	0.582	&	0.561		\\
+Rivers	&	0.873 &	2.393 &	0.735 &	1.188 &	0.235	\\
+Roads	&	-0.293	&	0.746	&	0.191	&	-1.53	&	0.126		\\
+Lat &	-0.106	&	0.900	&	0.026	&	-4.074	&	5E-05	***	\\
+Lon	&	0.016	&	1.016	&	0.057	&	0.288	&	0.773		\\
+Region	&	0.573	&	1.773	&	0.111	&	5.162	&	2E-07	***	\\
+Clouds*Region	&	-0.028	&	0.972	&	0.028	&	-0.99	&	0.322		\\
+Neighbours	&	0.317	&	1.373	&	0.111	&	2.863	&	0.004	**	\\
+Rainfall	&	-0.003	&	0.997	&	0.001	&	-5.331	&	1E-07	***	\\
+Rainfall*Region	&	0.001	&	1.001	&	0.001	&	0.859	&	0.390		\\
+Temperature	&	0.025	&	1.025	&	0.004	&	6.855	&	7E-12	***	\\
+Temperature*Region	&	-0.021	&	0.979	&	0.004	&	-5.476	&	4E-08	***	\\
+\hline
+\hline
+\multicolumn{6}{l}{Signs stand for '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 and denote hazard ratios that are significantly }\\
+\multicolumn{6}{l}{different from 1 at 99\%, 95\% and 90\% confidence levels. The model contains controls for grouped and }\\
+\multicolumn{6}{l}{time-dependent year periods. PAs stand for Protected Areas. Indigenous Lands and Conservational Units.}\\
+\end{tabularx}%
+\label{tab:CPH_NDVI_sett_time}%
+\end{table}%
 
 \section{Discussion} 
 \label{S:5}
@@ -369,4 +807,10 @@ In this study, we employed a survival analysis approach to detect the probabilit
 In the results, we conclude that protected areas and roads are a great risk to the survival of forests. Protected areas reflect the action of past deforestation and then, the pressure on these special zones is transitioned to their borders. Roads indicate infrastructure expansion and is usually considered a proximate drivers. Our findings explain that forests close to roads has a higher chance of being cleared. Mainly, forested pixels covered by clouds in the surveillance area has a higher chance of being deforested than in the not monitored area. Having forested pixels nearby increases the chance of being deforested which is assimilating the anthropic pressure on the environment. Finally, rainfall and temperature also affects the hazard. For the environmentally regulated region, intensive showers and lower temperatures increase the probability of a forested pixel being deforested. For the non regulated side, rainfall and lower temperature decreases the aforementioned probability.
 
 We acknowledge a number of limitations to the resulted analysis. Firstly, the model implicitly assumes that in the first year of the study all pixels are fully occupied by forest, which in reality might not be true. It is also possible that the spatial distribution of the vegetation indices may exhibit dynamic behaviour over time, so that a potential area may or may not be sparsely vegetated for a certain period (e.g., during sampling) due to progressive succession of forest or attack of pests and diseases which is not captured by the vegetation indices. Secondly, the study was based on coarse image resolution which could neglect local changes (< 250m) in the sample area. Thirdly, our results may not be generalised to other areas, such as dense tropical forests and sparse open fields. In addition, we only considered for the analysis covariates existent before or from 2000, which excluded roads, protected areas, indigenous land, markets, municipalities centre, and, mining/mineral resources created or discovered after 2000. Finally, we understand that the models were derived from NDVI values which tend to be the second best choice of vegetation index comparing to EVI values for ecotone forests \citep{ratana_huete_ferreira_2005,bayma_sano_2015,didan_munoz_2015}.
+
+\let\cleardoublepage\clearpage
+\begin{appendices} \label{appendix}
+\renewcommand{\thechapter}{A.\arabic{chapter}}
+\input{Chapter3/AppendixA3}
+\end{appendices}
  
