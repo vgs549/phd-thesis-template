@@ -258,7 +258,7 @@ supported!}
 % Add appendices
 \RequirePackage[title,titletoc]{appendix}
 
-\renewcommand{\contentsname}{Table of contents}
+\renewcommand{\contentsname}{Table of Contents}
 \renewcommand{\listfigurename}{List of figures}
 \renewcommand{\listtablename}{List of tables}
 
@@ -266,7 +266,7 @@ supported!}
 \let\temptableofcontents\tableofcontents
 \renewcommand{\tableofcontents}{
   \cleardoublepage
-  \pdfbookmark[0]{\contentsname}{Contents}
+  \pdfbookmark[0]{\contentsname}{Table of Contents}
   \temptableofcontents
 }
 
@@ -702,7 +702,7 @@ supported!}
 % type” means exactly (in terms of millimetres baseline distance). The following
 % LaTeX setting has routinely been considered perfectly acceptable:
 
-\renewcommand\baselinestretch{1.2}
+\renewcommand\baselinestretch{1.5}
 
 % ******************************** Justification *******************************
 % Left aligned as per University identity guidelines
@@ -838,6 +838,13 @@ wish to left align your text}
 \newcommand{\@university}{}
 \newcommand{\university}[1]{\renewcommand{\@university}{#1}}
 
+% The name of your University 2
+\newcommand{\@universityy}{}
+\newcommand{\universityy}[1]{\renewcommand{\@universityy}{#1}}
+
+\newcommand{\@universityyy}{}
+\newcommand{\universityyy}[1]{\renewcommand{\@universityyy}{#1}}
+
 % Defining the crest
 \newcommand{\@crest}{}
 \newcommand{\crest}[1]{\renewcommand{\@crest}{#1}}
@@ -941,10 +948,6 @@ wish to left align your text}
 	\vspace{.15\PHD@titlepagespacing}
 \fi
 
-% Title
-{\usebox{\PHD@Title}} % subtitle is defined
-
-
 % Crest
 
 \ifPHD@collegeshield%
@@ -957,6 +960,8 @@ wish to left align your text}
 	\vspace{.15\PHD@titlepagespacing}
 \fi
 
+% Title
+{\usebox{\PHD@Title}} % subtitle is defined
 
 
 % Author
@@ -975,15 +980,15 @@ wish to left align your text}
 \vspace*{0.5em}
 \fi
 
-% Department and University
-{\usebox{\PHD@dept}}
-\vspace{.2\PHD@titlepagespacing}
-
 % Submission Text
 {\usebox{\PHD@submission}}
 
+
+% Department and University
+{\usebox{\PHD@dept}}
+\vspace{.1\PHD@titlepagespacing}
+
 % College and degree date
-\vfill
 {\usebox{\PHD@collegedate}}
     
 \end{center}
@@ -1169,6 +1174,7 @@ wish to left align your text}
 \begin{lrbox}{\PHD@collegecrest}
   \ifPHD@collegeshield%
     {\@collegeshield}
+    \vspace{4em}
   \else
     % College shield is undefined
   \fi
@@ -1223,8 +1229,11 @@ wish to left align your text}
 \newsavebox{\PHD@dept}
 \begin{lrbox}{\PHD@dept}
   \begin{minipage}[c]{\textwidth}
-    \centering {\large \@dept \par}
-	       {\large \@university \par}
+  \vspace{4em}
+    \hfill {\large \@dept \par}
+	  \hfill     {\large \@university \par}
+	  \hfill     {\large \@universityy \par}
+	  \hfill     {\large \@universityyy \par}
   \end{minipage}
 \end{lrbox}
 
@@ -1234,7 +1243,7 @@ wish to left align your text}
   \begin{minipage}[c]{\textwidth}
     \begin{center}
       \large \submissiontext \par
-      \large \textit {\@degreetitle} \par
+      \large  {\@degreetitle} \par
     \end{center}
   \end{minipage}
 \end{lrbox}
@@ -1246,15 +1255,15 @@ wish to left align your text}
   \large
   \ifthenelse{\equal{\@college}{}}{
     % college is not defined
-    \begin{center}
+    \begin{flushright}
       \@degreedate
-    \end{center}
+    \end{flushright}
   }{
     % college is defined
-    \begin{minipage}[b]{0.49\textwidth}
-      \flushleft\@college
+    \begin{minipage}[c]{\textwidth}
+      \flushright\@college
     \end{minipage}
-    \begin{minipage}[b]{0.49\textwidth}
+    \begin{minipage}{\textwidth}
       \flushright \@degreedate
     \end{minipage}
   } % college is defined
