@@ -86,7 +86,7 @@ The next level down is the environmental council that proposes governmental poli
 \tikzstyle{line} = [draw,-latex', thick]
 \tikzstyle{block3}=[draw, rectangle, rounded corners, align=center, fill=lightgray,minimum height=15mm, minimum width=\textwidth, text width=20em, text centered]
 
-\resizebox{0.8\linewidth}{!}{%
+\resizebox{1\linewidth}{!}{%
 \begin{center}
 \begin{tikzpicture}
 
@@ -566,10 +566,11 @@ amounts to 0.07 or 15\% of the direct effect. In other words, these feedback eff
 
 Overall, we can observe that the Institutional Environmental Framework (IEF) when established in a municipality tend to detain deforestation in neighbouring municipalities. As an example, in all of our specifications conditioning the existence of the IEF and the exercise of fines we have a negative effect on neighbouring municipalities. We can see the same effect for the market expansion conditioned on the IEF which corroborates with our main findings \ref{tab:results2}. 
 
-\begin{table}[htpb!]
+\begin{table}[ht!]
 \caption{Spatial Analysis - Baseline Model}
-\scriptsize
-       \begin{tabularx}{0.8\linewidth}{E C C C}
+\footnotesize
+       \begin{tabularx}{1\textwidth}{l XXX}
+     \hline
      \hline
         \multicolumn{4}{l}{Dependent: $\Delta$ \textit{ln} Deforestation}\\ \cline{1-4}
     Sample & W1 & W2 & W3 \\
@@ -598,7 +599,26 @@ Overall, we can observe that the Institutional Environmental Framework (IEF) whe
     AIC & 19155 & 19155 & 19042  \\
     BIC & 19393 & 19393 &  19280 \\
     \hline
-    \multicolumn{4}{c}{Direct Effects} \\ \cline{1-4} 
+	\hline
+    \multicolumn{4}{l}{t-values are indicated in parentheses next to the coefficients. PAs stands for Protected Areas.}\\
+   \end{tabularx}%
+  \label{tab:spatialW}%
+\end{table}%
+
+
+    \begin{table}[htpb!]
+\caption{Spatial Analysis - Baseline Model - Effects}
+\footnotesize
+\centering
+       \begin{tabularx}{0.8\textwidth}{l XXX}
+     \hline
+     \hline
+        \multicolumn{4}{l}{Dependent: $\Delta$ \textit{ln} Deforestation}\\ 
+        \hline
+    Sample & W1 & W2 & W3 \\
+        \hline
+    \multicolumn{4}{c}{Direct Effects} \\ 
+    \hline
     Fines$_{-1}$ & 0.599 (10.501) & 0.598 (10.485) & 0.603 (10.840)\\
     Protected Areas$_{-1}$& -0.024 (-1.800) & -0.024 (-1.800) & -0.030 (-2.292)\\
     Env. Law$_{-1}$ & 0.550 (2.386) & 0.552 (2.393) & 0.597 (2.633)\\
@@ -617,7 +637,8 @@ Overall, we can observe that the Institutional Environmental Framework (IEF) whe
     Env. Law$_{-1}$* Beef Price$_{-1}$ & -0.045 (-0.458) & -0.046 (-0.459) & -0.059 (-0.619)\\
     Env. Office$_{-1}$* Beef Price$_{-1}$ & -0.032 (-0.324) & -0.032 (-0.322) & -0.026 (-0.277) \\
     \hline
-    \multicolumn{4}{c}{Indirect Effects} \\ \cline{1-4} 
+    \multicolumn{4}{c}{Indirect Effects} \\ 
+    \hline
     Fines$_{-1}$ & 0.119 (6.203) & 0.119 (6.180) & 0.375 (7.063)\\
     Protected Areas$_{-1}$ & -0.004 (-1.736) & -0.005  (-1.735) & -0.018 (-2.210)\\
     Env. Law$_{-1}$ &0.109 (2.282) & 0.109 (2.287) & 0.372 (2.520)\\
@@ -636,7 +657,8 @@ Overall, we can observe that the Institutional Environmental Framework (IEF) whe
     Env. Law$_{-1}$* Beef Price$_{-1}$ & -0.009 (-0.458) & -0.009 (-0.459) & -0.037 (-0.612)\\
     Env. Office$_{-1}$* Beef Price$_{-1}$& -0.006 (-0.321) & -0.06 (-0.318) & -0.016 (-0.274)\\
     \hline
-    \multicolumn{4}{c}{Total Effects} \\ \cline{1-4} 
+    \multicolumn{4}{c}{Total Effects} \\ 
+    \hline
     Fines$_{-1}$ & 0.718 (10.253) & 0.717 (10.239) & 0.978 (9.886) \\
     Protected Areas$_{-1}$ & -0.029 (-1.798) & -0.029 (-1.798) & -0.048 (-2.277)\\
     Env. Law$_{-1}$  &  0.660 (2.385) & 0.662 (2.392) & 0.969 (2.615)\\
@@ -655,7 +677,7 @@ Overall, we can observe that the Institutional Environmental Framework (IEF) whe
     Env. Law$_{-1}$* Beef Price$_{-1}$ & -0.054 (-0.458) & -0.055 (-0.460) & -0.097 (-0.618)\\
     Env. Office$_{-1}$* Beef Price$_{-1}$ & -0.038 (-0.324) & -0.038 (-0.322) & -0.042 (-0.276)\\
     \hline
-	\bottomrule
+	\hline
     \multicolumn{4}{l}{t-values are indicated in parentheses next to the coefficients. PAs stands for Protected Areas.}\\
    \end{tabularx}%
   \label{tab:spatialW}%

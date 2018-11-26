@@ -390,9 +390,51 @@ The climatic variables needed a more complex processing system since the data fr
 
 Next, an interpolation method was used to deal with areas with no data available. The method chosen was ordinary (point) Kriging which has been argued as the best interpolation technique available for sparse data \citep{SLUITER_2009}. Ordinary kriging is part of the probabilistic methods in which the concept of randomness is incorporated into the analysis. This method is the basic form of Kriging, where the prediction relies on a linear combination of the measured values and the spatial correlation between the data, determining the weights. As the mean is unknown we assume that intrinsic stationary exists in the data. This assumption may fail for our data set since this type of data are usually not stationary. To overcome this issue we used different sizes and shapes of neighbourhood to adjust the kringing ordinary model \citep{SLUITER_2009}. 
 
-After the interpolation, the images were converted to raster, resampled to the size of the response variable, and exported to MATLAB environment. Generally, for temperature, precipitation, and other climate data, the best way to interpret and study these phenomenons is using anomaly measurements which corresponds to the difference between measurement and mean. In this sense, the average value of the variable of each image for each month and each year was computed, giving a total of 408 images analysed for both regions (MA and LM), and for each climatic variable, a total of 2,448 images. Following this procedure, the number of pixels with values higher and lower than the average value of the variable was extracted to a table. At the end, the table contained above and below values compared to the mean for each variable translating into 12 variables.
+After the interpolation, the images were converted to raster, resampled to the size of the response variable, and exported to MATLAB environment. Generally, for temperature, precipitation, and other climate data, the best way to interpret and study these phenomenons is using anomaly measurements which corresponds to the difference between measurement and mean. In this sense, the average value of the variable of each image for each month and each year was computed, giving a total of 408 images analysed for both regions (MA and LM), and for each climatic variable, a total of 2,448 images. Following this procedure, the number of pixels with values higher and lower than the average value of the variable was extracted to a table. At the end, the table contained above and below values compared to the mean for each variable translating into 12 variables. A summary of the response and explanatory variables of this study is presented at Table \ref{tab:summarychapter2}.
 
-A summary TABLE OR GRAPH of the response and explanatory variables of this study is presented at TABLE GRAPH XXX.
+
+\begin{table}[H]
+\footnotesize
+    \caption{Summary Statistics - Response and Covariate Variables}
+      \begin{tabularx}{\linewidth}{X H H H H}
+     \hline
+     \hline
+      Variable  & Mean & St. Dev. & Min. & \centering\arraybackslash Max.\\
+     \hline
+NDVI 25Km	&	626	&	731	&	0	&	4803	\\
+NDVI 50Km	&	1279	&	1415	&	0	&	9185	\\
+NDVI 100Km	&	2087	&	2175	&	0	&	12660	\\
+EVI 25Km	&	8277	&	11353	&	0	&	73734	\\
+EVI 50Km	&	2554	&	3861	&	0	&	25250	\\
+EVI 100Km	&	8277	&	11353	&	0	&	73734	\\
+Below Min Temp 25km	&	83711	&	57037	&	0	&	218320	\\
+Below Min Temp 50km	&	159092	&	112926	&	0	&	436290	\\
+Below Min Temp 100km	&	250820	&	171007	&	0	&	633370	\\
+Above Max Temp 25km	&	105094	&	69290	&	0	&	218320	\\
+Above Max Temp 50km	&	201308	&	134299	&	0	&	436300	\\
+Above Max Temp 100km	&	287792	&	190863	&	0	&	633370	\\
+Below Sunlight 25km	&	79678	&	47638	&	0	&	169150	\\
+Below Sunlight 50km	&	167845	&	98578	&	0	&	434760	\\
+Below Sunlight 100km	&	261061	&	149782	&	0	&	633370	\\
+Below Humidity 25km	&	98957	&	50230	&	0	&	213400	\\
+Below Humidity 50km	&	192560	&	97230	&	0	&	324620	\\
+Below Humidity 100km	&	289185	&	140379	&	0	&	633370	\\
+Above Precipitation 25km	&	90697	&	37384	&	0	&	191170	\\
+Above Precipitation 50km	&	186745	&	77623	&	0	&	411370	\\
+Above Precipitation 100km	&	292985	&	118665	&	0	&	633370	\\
+    \hline
+    \hline
+    \multicolumn{5}{l}{\footnotesize  Note: Statistics refer to N=204 observations for 17 years (2000 - 2016). The below and above nomenclature}\\
+    \multicolumn{5}{l}{\footnotesize refers to the mean of each variable.}
+    \end{tabularx}
+  \label{tab:summarychapter2}
+\end{table}
+
+
+
+
+
+
 
 \subsubsection{Modelling deforestation trends}  %mudar o titutlo
 
@@ -591,64 +633,35 @@ Our baseline model includes 204 monthly observations of NDVI and EVI values chan
 
 In general, the deviance explains the models close to the artificial line better. At large distances (100 km), most of the covariates do not have a significant effect, and thus will be omitted from this part of analysis. Table \ref{results1} gives the summary of the results including deviance, AIC, p-value, degrees of freedom, and the estimated value of the function. The best way to understand and interpret GAMs is through visual representation. Considering that the results produced several models, we define the name of these models according to the location status, whether in Cerrado Maranhao (MA) or Legal Maranhao (LM), the bandwidth or distance from the Legal Amazon line, in which are 25km,50km and, 100km, and, finally, regarding each response variable that in our case is related to NDVI (n) and EVI (e) values. We add an indicative variable to indicate raining (r) and dry (d) seasonality. Plotting the smoothing functions, it is possible to check for the path of deforestation through the years and the climatic state during that period. The blue line refers to positive changes in deforestation or increments, and the red line indicates negative changes in deforestation or decreases \citep{Gavin_2018}. 
 
+\begin{landscape}
 \begin{table}[H]
 \footnotesize
 \caption{Models Output}
-\begin{tabularx}{0.9\linewidth}{lxx}
+\begin{tabularx}{0.85\linewidth}{lxxxxxx}
 \hline
 \hline
-Model  & AIC &   Deviance Explained\\
+Model  & AIC &   Deviance Explained &  AIC &   Deviance Explained & AIC &   Deviance Explained\\
 \hline
-Baseline Model & & \\
+Baseline Model & & & Raining Season &  &  Dry Season &    &\\
 \hline
-ma25n & 4592.974 & 15\%\\
-lm25n & 4753.342 & 30.9\%\\
-ma25e & 5382.682 & 20.1\%\\
-lm25e & 5450.606 & 36.4\%\\
-ma50n & 5035.296 & 17.3\%\\
-lm50n & 5010.875 & 24.5\%\\
-ma50e & 6123.032 & 20.5\%\\
-lm50e & 5921.597 & 29.3\% \\
-ma100n & 5312.836 & 16.6\%\\
-lm100n & 5318.571 & 30.5\%\\
-ma100e & 6097.770 & 23.6\%\\
-lm100e & 5901.040 & 33.4\%\\
-\hline
-Raining Season &    &\\
-\hline
-ma25nr & 3008.928 & 53.8\% \\
-lm25nr & 3082.583 & 44\% \\
-ma25er & 3486.908 & 52.1\% \\
-lm25er & 3369.937 & 63.1\%\\
-ma50nr & 3402.803 & 60\%\\
-lm50nr & 3241.013 & 55.8\% \\
-ma50er & 4154.889 & 62.6\%\\
-lm50er & 3886.190 & 63.2\%\\
-ma100nr & 3723.872 & 62.2\%\\
-lm100nr & 3552.311 & 52.7\% \\
-ma100er & 4176.352 & 59.4\% \\
-lm100er & 3906.004 & 59.5\% \\
-\hline
-Dry Season&    &\\
-\hline
-ma25nd & 3029.610 & 52.3\% \\
-lm25nd & 3330.420 & 54.6\% \\
-ma25ed & 3533.256 & 50.9\%\\
-lm25ed & 3812.126 & 65.6\%\\
-ma50nd & 3390.411 & 42.2\%\\
-lm50nd & 3498.748 & 35.1\%\\
-ma50ed & 4051.907 & 47\%\\
-lm50ed & 4112.314 & 48.5\%\\
-ma100nd & 3562.066 & 45.2\%\\
-lm100nd & 3701.532 & 47.2\%\\
-ma100ed & 4051.806 & 45.3\% \\
-lm100ed & 4097.055 & 46.7\% \\
+ma25n & 4592.974 & 15\% & 3008.928 & 53.8\%  & 3029.610 & 52.3\% \\
+lm25n & 4753.342 & 30.9\% & 3082.583 & 44\% & 3330.420 & 54.6\% \\
+ma25e & 5382.682 & 20.1\% & 3486.908 & 52.1\% & 3533.256 & 50.9\%\\
+lm25e & 5450.606 & 36.4\% & 3369.937 & 63.1\% & 3812.126 & 65.6\%\\
+ma50n & 5035.296 & 17.3\% & 3402.803 & 60\% & 3390.411 & 42.2\%\\
+lm50n & 5010.875 & 24.5\% & 3241.013 & 55.8\% & 3498.748 & 35.1\%\\
+ma50e & 6123.032 & 20.5\% & 4154.889 & 62.6\% & 4051.907 & 47\%\\
+lm50e & 5921.597 & 29.3\% & 3886.190 & 63.2\%& 4112.314 & 48.5\%\\
+ma100n & 5312.836 & 16.6\% & 3723.872 & 62.2\%& 3562.066 & 45.2\%\\
+lm100n & 5318.571 & 30.5\% & 3552.311 & 52.7\% & 3701.532 & 47.2\%\\
+ma100e & 6097.770 & 23.6\% & 4176.352 & 59.4\% & 4051.806 & 45.3\% \\
+lm100e & 5901.040 & 33.4\% & 3906.004 & 59.5\% & 4097.055 & 46.7\% \\
 \hline
 \hline
 \end{tabularx}
 \label{results1}
 \end{table}
-
+\end{landscape}
 
 With respect to the model \textit{ma25n}, the explained deviance is 15\%, the variance was set to 1 in the geometric negative binomial distribution. The explanatory variable year is significant at 1\% level, and the smoothers significant at 1\% level are \textit{Min Temperature}, \textit{Max Temperature}, \textit{Humidity} and \textit{Sunlight}. The degrees of freedom for the smoothers are 2.4, 6.8, 4 and 7.9. In summary, for MA at 25km, deforestation had a positive effect after 2010 and, through the years, deforestation decreased during periods of low humidity (high thermal oscillation). It is also deduced from the model that deforestation decreased during periods of more hours of sunlight. There were more deforested pixels in periods where temperature declined. 
 
