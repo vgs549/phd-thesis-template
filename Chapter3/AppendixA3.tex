@@ -3,14 +3,32 @@
 
 \chapter{}
 
-\begin{landscape}
+\begin{sidewaystable}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=1.5\textwidth]{method.jpg}
-\caption{Flowchart of method applied to data. Moving from left to right indicates increasing levels of data processing during the study.}
+  \includegraphics[width=0.85\textwidth]{Chapter3/ML_pixels_death.png}
+\caption[Remaining Pixels in Legal Maranhão side]{Remaining Pixels in Legal Maranhão side for three different year periods. Pixels are only counted once. Area was randomly chosen.}
+\label{fig:remainingLM}
+\end{figure}
+\end{sidewaystable}
+
+\begin{sidewaystable}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{Chapter3/MA_pixels_death.png}
+\caption[Remaining Pixels in Cerrado Maranhão side]{Remaining Pixels in Cerrado Maranhão side for three different year periods. Pixels are only counted once. Area was randomly chosen.}
+\label{fig:remainingMA}
+\end{figure}
+\end{sidewaystable}
+
+\begin{sidewaystable}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=9\textwidth]{method.jpg}
+\caption[Flowchart of method applied to data]{Flowchart of method applied to data. Moving from left to right indicates increasing levels of data processing during the study.}
 \label{fig:method}
 \end{figure}
-\end{landscape}
+\end{sidewaystable}
 
 \begin{table}[H]
 \footnotesize
@@ -34,6 +52,8 @@ NDVI Buffer ML & 0.689 & 0.003	&	0.68	&	0.0052 \\
 NDVI Buffer Region & 0.668 & 0.003	&	0.66	&	0.0003 \\
 \hline
 \hline
+\multicolumn{5}{l}{\footnotesize Concordance Index is computed along with the statistical results. K-fold validation is computed using the} \\
+\multicolumn{5}{l}{\footnotesize results from the statistical analysis as input for the calculation.}
 \end{tabularx}
 \label{kfold}
 \end{table}
@@ -122,7 +142,7 @@ Temperature	&	30.011	&	9.522	&	29.000	&	34.000	\\
 \label{tab:summaryMALM}
 \end{table}
 
-\begin{landscape}
+\begin{sidewaystable}
 \begin{table}[H]
 \footnotesize
     \caption{Data Description - Sources}
@@ -135,7 +155,7 @@ Temperature	&	30.011	&	9.522	&	29.000	&	34.000	\\
     Land Cover & USGS/NASA  & Global land cover types at yearly intervals derived from six different classification schemes. & Raster & 500m\\
     Pas	& MMA & Euclidean distance to nearest protected area in decimal degrees & Polygon & - \\
     Mines & EMBRAPA & Euclidean distance to nearest mineral resource/mining in decimal degrees & Point & -\\
-    Elevation & EMBRAPA & Digital elevated map of Maranhao & Raster & 30m\\
+    Elevation & EMBRAPA & Digital elevated map of Maranhão & Raster & 30m\\
     Markets	& CONAB & Euclidean distance to nearest market in decimal degrees & Point & -\\
     Municipalities	& IBGE & Euclidean distance to nearest municipality centre in decimal degrees & Point & -\\
     Rivers	& IBGE & Euclidean distance to nearest river/basin in decimal degrees & Polyline & - \\
@@ -147,4 +167,4 @@ Temperature	&	30.011	&	9.522	&	29.000	&	34.000	\\
     \end{tabularx}%
  \label{tab:sources}%
 \end{table}%
-\end{landscape}
+\end{sidewaystable}

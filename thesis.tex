@@ -1,9 +1,7 @@
 % ******************************* PhD Thesis Template **************************
 % Please have a look at the README.md file for info on how to use the template
 
-\documentclass[a4paper,12pt,times,authoryear,print,oneside,index]{PhDThesisPSnPDF}
-
-
+\documentclass[a4paper,12pt,times,authoryear,print,oneside,index,custommargin]{PhDThesisPSnPDF}
 
 \usepackage[utf8]{inputenc} %The package translates various standard and other input encoding into a ‘LATEX internal language’. Acentos graficos e etc...
 \usepackage[T1]{fontenc} %The T1 font encoding is an 8-bit encoding and uses fonts that have 256 glyphs.
@@ -31,7 +29,7 @@
 %\usepackage{subcaption} %Same as subfigure
 \usepackage{afterpage} % Provides a means of running commands immediately after the current page is output
 \usepackage{epigraph} %EpigrGTphs are the pithy quotations often found at the start (or end) of a chapter.
-\usepackage[bottom]{footmisc} %Place the footnote at the bottom of the page.
+%\usepackage[bottom]{footmisc} %Place the footnote at the bottom of the page.
 \pretolerance=100000 %an integer parameter that is used in TeX's line breaking algorithm.
 \usepackage{float} %is about the floating environments figure, table and other, custom-defined floats, and concerns issues such as positioning, labelling, captioning, indexing and listing of said floats.
 %\widowpenalties 1 100 %Penalty for a broken page, with a single line of a paragraph (called "widow") remaining on the top of the succeeding page.
@@ -39,23 +37,17 @@
 \usepackage{stfloats} % provide commands to control \baselineskip, that actually permit stretch and shrink, allowing a different value for use within floats; provide commands to control whether footnotes will appear above (as standard) or below a bottom float;provides a command that declares that double floats should be placed at the bottom (rather than the top) of a page.
 \usepackage{rotating} %A package built on the standard LATEX graphics package to perform all the different sorts of rotation one might like, including complete figures and tables with their captions.
 \usepackage{booktabs} %The package enhances the quality of tables in LATEX, providing extra commands as well as behind-the-scenes optimisation.
-\usepackage[doublespacing]{setspace} %setting the space between the lines
+\usepackage{afterpage}
+%\usepackage[doublespacing]{setspace} %setting the space between the lines
 %\usepackage{upquote} %The package switches the typewriter font to Computer Modern Typewriter in OT1 encoding, and modifies the behaviour of verbatim, verbatim*, \verb, and \verb* to print in the “` and ' way”. It does this regardless of other fonts or encodings in use, so long as the package is loaded after the other fonts were.
-\usepackage{listings} %The package enables the user to typeset programs (programming code) within LATEX.
 \usepackage{enumerate} %The package adds an optional argument to the enumerate environment which determines the style in which the counter is printed.
 \usepackage{lscape} %Modifies the margins and rotates the page contents but not the page number. Useful, for example, with large multipage tables, as it is compatible with longtable and supertabular.
 \usepackage{verbatim} % package to include commenting out sections
 \usepackage{pdflscape} %The package adds PDF support to the landscape environment of package lscape, by setting the PDF /Rotate page attribute. Pages with this attribute will be displayed in landscape orientation by conforming PDF viewers.
 \usepackage{bm} %package defines a command \bm which makes its argument bold. The argument may be any maths object from a single symbol to an expression
-\usepackage[pdftex]{hyperref} %The hyperref package is used to handle cross-referencing commands in LATEX to produce hypertext links in the pdf document.
-\hypersetup{
-    colorlinks=false,
-    linkcolor=black,
-    filecolor=black,      
-    urlcolor=black,
-}
-\usepackage{pdfpages} %This package simplifies the inclusion of external multi-page PDF documents in LATEX documents. Pages may be freely selected and similar to psnup it is possible to put several logical pages onto each sheet of paper.
-\usepackage{dcolumn} %The dcolumn package makes use of the array package to define a "D" column format for use in tabular environments.
+\usepackage[unicode=true,pdftex]{hyperref} %The hyperref package is used to handle cross-referencing commands in LATEX to produce hypertext links in the pdf document.
+%\usepackage{pdfpages} %This package simplifies the inclusion of external multi-page PDF documents in LATEX documents. Pages may be freely selected and similar to psnup it is possible to put several logical pages onto each sheet of paper.
+%\usepackage{dcolumn} %The dcolumn package makes use of the array package to define a "D" column format for use in tabular environments.
 \usepackage{longtable} %Longtable allows you to write tables that continue to the next page.
 \usepackage[export]{adjustbox} %The package provides several macros to adjust boxed content. One purpose is to supplement the standard graphics package, which defines the macros \resizebox, \scalebox and \rotatebox , with the macros\trimbox and \clipbox.
 %\usepackage{menukeys}
@@ -79,7 +71,7 @@
 \usepackage{tikz} %For Fluxograms
 \usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric, decorations.pathreplacing,decorations.pathmorphing,shapes, matrix,shapes.symbols}
 \usepackage{scalerel} %scales the sub-subscript
-\usepackage[titletoc,toc,page,title,header]{appendix}
+%\usepackage[titletoc,toc,page,title,header]{appendix}
 %\renewcommand{\appendixname}{}
 %\usepackage{titlesec}
 
@@ -156,7 +148,7 @@
 % and Section Name in Header on Odd Side (Right Odd). Page numbering in footer
 
 % Uncomment to change page style
-%\pagestyle{PageStyleI}
+%\pagestyle{}
 
 % ********************************** Preamble **********************************
 % Preamble: Contains packages and user-defined commands and settings
@@ -211,14 +203,16 @@
 
 %\printnomenclature
 
+
 % ******************************** Main Matter *********************************
+
 \mainmatter
 
 \include{Introduction/Introduction}
 \include{Chapter1/chapter1}
 \include{Chapter2/chapter2}
 \include{Chapter3/chapter3}
-%\include{Chapter4/chapter4}
+%\include{Conclusion/Conclusion}
 %\include{Chapter5/chapter5}
 %\include{Chapter6/chapter6}
 %\include{Chapter7/chapter7}
